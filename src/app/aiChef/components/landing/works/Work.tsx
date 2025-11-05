@@ -8,6 +8,7 @@ import Button from "../../shared/components/Button";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
+import Heading from "../../shared/components/Heading";
 export default function Work() {
   const [selected, setSelected] = useState(works[0]);
   const handleNextWork = useCallback(() => {
@@ -47,7 +48,11 @@ export default function Work() {
     [handlePrevWork, handleNextWork]
   );
   return (
-    <section className="container mx-auto px-3 w-full mt-26 text-[#213D34]">
+    <section className="container mx-auto px-3 lg:px-8 w-full mt-26 text-[#213D34]">
+      <Heading
+        title="How it works"
+        description="Step into the world of hassle-free meal planning with our easy 3-step process"
+      />
       <div className="flex flex-col md:flex-row w-full justify-around gap-10 p-5">
         <div className="max-w-lg">
           <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl">{`0${selected.id}`}</h1>

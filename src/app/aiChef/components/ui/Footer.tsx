@@ -52,11 +52,10 @@ export default function Footer() {
             <WhatsAppIcon sx={btn} />
           </figure>
         </article>
-        <p className="text-sm md:text-lg w-full text-[#F1F2ED]">
-          © 2064 AIChefMate. All rights reserved. | Privacy Policy | Terms of
-          Use
-        </p>
       </section>
+      <p className="text-sm md:text-lg w-full text-[#F1F2ED] container px-8 my-5">
+        © 2064 AIChefMate. All rights reserved. | Privacy Policy | Terms of Use
+      </p>
     </footer>
   );
 }

@@ -32,7 +32,12 @@ export default function Buttons({
       style={{ width: size, backgroundColor: bg }}
     >
       <Button
-        sx={{ color: textColor, padding: "10px 5px", minWidth: mainWidth }}
+        sx={{
+          color: textColor,
+          padding: "10px 5px",
+          minWidth: mainWidth,
+          fontSize: "12px",
+        }}
         onClick={onClick}
         className="w-full h-full "
       >

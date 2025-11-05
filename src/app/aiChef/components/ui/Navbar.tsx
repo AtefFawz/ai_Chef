@@ -110,7 +110,7 @@ export default function Navbar() {
             </nav>
           </header>
         </div>
-        {/* Navbar Tow */}
+        {/* Navbar Tow Mobil*/}
         <header className="md:hidden max-w-full pb-5 z-10 ">
           <nav
             className="md:hidden px-5 pt-5 flex justify-between items-center"

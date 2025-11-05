@@ -30,7 +30,7 @@ export const RecipeItem = ({ recipe }: { recipe: DataRecipes }) => {
         <p className="text-sm lg:text-lg">{recipe.description}</p>
         {/* Button */}
         <div
-          className="xl:w-[30%] w-[90%] md:w-[70%]"
+          className="xl:w-[30%] w-full md:w-[70%]"
           onClick={runAnimatedSequence}
         >
           <Buttons content={`${recipe.textButton} `} bg="#d9ef78" border="1" />

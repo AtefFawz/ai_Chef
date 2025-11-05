@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <section
       id="home"
-      className=" w-full px-4 pt-42 pb-25 container mx-auto font-sans h-full text-[#213D34]"
+      className=" w-full px-4 pt-32 md:pt-42 pb-25 container mx-auto font-sans h-full text-[#213D34]"
     >
       <div className="flex flex-col justify-center items-center gap-y-5">
         <motion.h1
