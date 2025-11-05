@@ -46,10 +46,8 @@ export default function Testimonials() {
                   color:
                     item.textColor == "#f1f2ed" ? "#d9ef78" : item.textColor,
                 }}
-                className={`text-4xl text-end`}
-              >
-                "
-              </span>
+                className="text-4xl text-end"
+              ></span>
 
               <figure className=" flex justify-between items-center w-full gap-x-2 md:gap-x-5">
                 <Image
@@ -61,7 +59,7 @@ export default function Testimonials() {
                 />
                 <figcaption className=" w-full text-sm md:text-lg">
                   {item.namePerson}
-                </figcaption>{" "}
+                </figcaption>
               </figure>
             </motion.article>
           ))}

@@ -2,12 +2,12 @@
 import { motion } from "framer-motion";
 import Button from "@mui/material/Button";
 interface buttons {
-  content?: any;
+  content?: React.ReactNode;
   bg?: string;
   border?: string;
   borderColor?: string;
   textColor?: string;
-  onClick?: any;
+  onClick?: () => void;
   size?: string;
   mainWidth?: string;
 }

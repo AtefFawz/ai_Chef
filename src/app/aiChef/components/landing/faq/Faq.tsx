@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import FaqItem from "./FaqItem";
 import { parentAnimate } from "../../shared/animation/Animation";
-import { itemFaqData, faqDataType } from "./data/FaqData";
+import { itemFaqData } from "./data/FaqData";
 import Heading from "../../shared/components/Heading";
 export default function Faq() {
   return (
@@ -22,7 +22,8 @@ export default function Faq() {
           className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-between items-center"
         >
           {itemFaqData?.length > 0 ? (
-            itemFaqData.map((faqData: faqDataType) => {
+            itemFaqData.map((faqData) => {
+              if (!faqData) return null;
               return <FaqItem faqData={faqData} key={faqData.id} />;
             })
           ) : (

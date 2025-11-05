@@ -17,7 +17,7 @@ export const TestimonialItemData: TestimonialDataType[] = [
   {
     id: 1,
     description:
-      "Since using AIChefMate, I've rediscovered my love for cooking! The meal plans are easy and delicious. It's been a game-changer for my busy lifestyle.",
+      "Since using AIChefMate, I ve rediscovered my love for cooking! The meal plans are easy and delicious. It s been a game-changer for my busy lifestyle.",
     personImage: Emily,
     namePerson: "Emily R.",
   },

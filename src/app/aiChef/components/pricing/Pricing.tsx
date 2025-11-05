@@ -15,7 +15,7 @@ export default function Pricing() {
     },
   };
 
-  let headingStyle = `text-xl lg:text-2xl font-bold`;
+  const headingStyle = `text-xl lg:text-2xl font-bold`;
 
   return (
     <section className="w-full h-full bg-white pb-26 text-[#213D34]">

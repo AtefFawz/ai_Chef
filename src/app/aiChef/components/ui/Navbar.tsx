@@ -1,6 +1,5 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import Link from "next/link";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import CloseIcon from "@mui/icons-material/Close";
 import Icon from "../../../../../public/images/home/Logo.png";
@@ -21,7 +20,6 @@ export const data: dataType[] = [
 export default function Navbar() {
   // Logic for Navbar
   const [active, setActive] = useState("/");
-
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
@@ -29,9 +27,8 @@ export default function Navbar() {
         const top = window.scrollY;
         const offset = sec.offsetTop - 100;
         const height = sec.offsetHeight;
-        const id: any = sec.getAttribute("id");
-
-        if (top >= offset && top < offset + height) {
+        const id: string | null = sec.getAttribute("id");
+        if (top >= offset && top < offset + height && id) {
           setActive(id);
         }
       });
@@ -75,10 +72,9 @@ export default function Navbar() {
       </a>
     );
   });
-
-  const navRef: any = useRef(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
   function showNavbar() {
-    navRef.current.classList.toggle("showNav");
+    navRef.current?.classList.toggle("showNav");
   }
 
   return (
@@ -93,11 +89,11 @@ export default function Navbar() {
             <nav className="flex flex-row justify-around min-w-fit gap-x-5 lg:gap-x-16 flex-none items-center">
               {extract}
               <div className="flex gap-x-1 ">
-                <Link href="/login">
+                <span>
                   <Button style={{ fontWeight: "bold", color: "#213D34" }}>
                     Log In
                   </Button>
-                </Link>
+                </span>
                 <span>
                   <Button
                     variant="contained"
