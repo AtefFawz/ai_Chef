@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { TestimonialItemData, TestimonialDataType } from "./data/Data";
-
+import Heading from "../../shared/components/Heading";
 export default function Testimonials() {
   const parentAnimate = { visible: { transition: { staggerChildren: 0.2 } } };
   const childAnimate = {
@@ -12,15 +12,11 @@ export default function Testimonials() {
   return (
     <section className="w-full h-full bg-white text-[#213D34] py-26 scroll-mt-20">
       <div className="container mx-auto px-4 lg:px-8 ">
-        <div className="flex md:max-w-[55%] lg:max-w-[50%] w-full pb-10 items-baseline ">
-          <h1 className="text-2xl md:text-3xl xl:text-4xl ">Testimonials </h1>
-          <span className="text-4xl mx-1">/</span>
-          <p className="text-sm xl:text-lg ">
-            {" "}
-            Real stories from satisfied users: see how our platform changes
-            lives
-          </p>
-        </div>
+        <Heading
+          title="Testimonials"
+          description="Real stories from satisfied users: see how our platform changes
+            lives"
+        />
         <motion.div
           variants={parentAnimate}
           initial="hidden"

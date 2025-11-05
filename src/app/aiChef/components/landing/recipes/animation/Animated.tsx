@@ -26,8 +26,8 @@ export const RecipeItem = ({ recipe }: { recipe: DataRecipes }) => {
       }}
       className={`border-1 px-5 lg:py-6 md:py-0 h-full flex justify-between items-center w-full border-[#213D34]`}
     >
-      <div className="space-y-3 md:space-y-5 p-5 w-full">
-        <p className="text-sm lg:text-lg">{recipe.description}</p>
+      <div className="space-y-3 md:space-y-5  w-full py-5 px-2">
+        <p className="text-[12px] lg:text-lg ">{recipe.description}</p>
         {/* Button */}
         <div
           className="xl:w-[30%] w-full md:w-[70%]"
