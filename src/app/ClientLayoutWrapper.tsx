@@ -1,15 +1,14 @@
-"use client"; // ⬅️ الـ Client Component اهو
+"use client"; 
 
 import { useState, useEffect } from "react";
 import Navbar from "./aiChef/components/ui/Navbar";
-import Loading from "./loading"; // (ملف الـ loading spinner بتاعك)
+import Loading from "./loading";
 
 export default function ClientLayoutWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // 1. ⬇️ انقل منطق الـ loading هنا
   const [isSiteLoading, setIsSiteLoading] = useState(true);
 
   useEffect(() => {
@@ -18,14 +17,12 @@ export default function ClientLayoutWrapper({
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, []); // (متنساش الأقواس دي)
+  }, []); 
 
-  // 2. ⬇️ اعرض الـ loading أو المحتوى
   if (isSiteLoading) {
     return <Loading />;
   }
 
-  // 3. ⬇️ لو التحميل خلص، اعرض الموقع
   return (
     <>
       <Navbar />

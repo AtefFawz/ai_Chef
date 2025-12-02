@@ -63,8 +63,8 @@ export default function Navbar() {
         key={ind}
         href={`#${item.path}`}
         className={`font-bold text-xl ${
-          active === item.name
-            ? "text-blue-500 font-bold border-b-2"
+          active === item.path
+            ? "text-blue-500 font-extrabold rounded-2xl bg-gray-300 py-3 px-6"
             : "text-gray-600"
         }`}
       >
@@ -78,7 +78,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className=" overflow-hidden md:px-3 lg:px-4 md:py-7 fixed top-0 left-0 right-0 z-50 backdrop-blur-xl  bg-transparent ">
+    <div className=" overflow-hidden md:px-3 lg:px-4 md:py-7 fixed top-0 left-0 right-0 z-50 backdrop-blur-3xl  ">
       <div className="container mx-auto">
         <div className="hidden md:block ">
           <header className="flex flex-row justify-between max-w-full gap-x-7 items-center  ">
@@ -133,43 +133,33 @@ export default function Navbar() {
             id="navHide"
             className="flex flex-col gap-10 items-center px-5  relative "
           >
-            <div
-              ref={navRef}
-              onClick={showNavbar}
-              id="close"
-              className="absolute right-5 my-5 "
-            >
-              <CloseIcon />
-            </div>
-            <div className="flex flex-col justify-around gap-y-10 absolute top-20 text-center  ">
+            <div className="flex flex-col justify-around gap-y-10 absolute top-20  ">
               {extract2}
               <hr className="w-[90vw]" />
               {/*  */}
-              <div className="flex gap-x-1 order-1 flex-col">
-                <span className="">
+              <div className="flex gap-x-1 order-1 flex-col justify-center w-full items-center ">
+                <div className=" w-full rounded-full text-center bg-[#778873] text-amber-50">
                   <Button
                     style={{
                       fontWeight: "bold",
-                      color: "#213D34",
+                      color: "white",
                       fontStyle: "italic",
                     }}
                   >
                     Log In
                   </Button>
-                </span>
-                <span>
+                </div>
+                <div className="w-full text-center rounded-full bg-[#213D34] mt-3">
                   <Button
-                    variant="contained"
                     style={{
-                      borderRadius: "50px",
                       fontWeight: "bold",
-                      backgroundColor: "#213D34",
                       fontStyle: "italic",
+                      color: "white",
                     }}
                   >
                     Start Fro Free
                   </Button>
-                </span>
+                </div>
               </div>
               {/*  */}
             </div>

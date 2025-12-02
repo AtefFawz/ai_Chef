@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { PricingItemData, PricingDataType } from "./data/Data";
-import Buttons from "../shared/components/Button";
-import Heading from "../shared/components/Heading";
+import Buttons from "../../shared/components/Button";
+import Heading from "../../shared/components/Heading";
 
 export default function Pricing() {
   const parentAnimate = { visible: { transition: { staggerChildren: 0.3 } } };
