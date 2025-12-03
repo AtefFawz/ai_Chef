@@ -1,5 +1,4 @@
 "use client";
-
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
@@ -25,7 +24,7 @@ export default function Loading() {
         }}
       >
         <CircularProgress sx={{ fontSize: "60px", fontWeight: "bold" }} />
-        😆نتك زفت
+        LOADING...
       </Box>
     </div>
   );

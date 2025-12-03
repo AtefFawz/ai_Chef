@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import { useState, useEffect } from "react";
 import Navbar from "./aiChef/components/ui/Navbar";
@@ -14,10 +14,10 @@ export default function ClientLayoutWrapper({
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSiteLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
-  }, []); 
+  }, []);
 
   if (isSiteLoading) {
     return <Loading />;

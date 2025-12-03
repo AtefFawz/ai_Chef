@@ -1,17 +1,16 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
-import CloseIcon from "@mui/icons-material/Close";
 import Icon from "../../../../../public/images/home/Logo.png";
 import Image from "next/image";
 import Button from "@mui/material/Button";
-
+import Link from "next/link";
 // Section One From Navbar
 interface dataType {
   name: string;
   path: string;
 }
-export const data: dataType[] = [
+const data: dataType[] = [
   { name: "Home", path: "home" },
   { name: "Recipes", path: "recipes" },
   { name: "Blog", path: "blog" },
@@ -20,6 +19,8 @@ export const data: dataType[] = [
 export default function Navbar() {
   // Logic for Navbar
   const [active, setActive] = useState("/");
+  console.log(active);
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
@@ -41,7 +42,7 @@ export default function Navbar() {
   //   Extracting the names and creating links
   const extract = data.map((item, ind) => {
     return (
-      <a
+      <Link
         key={ind}
         href={`#${item.path}`}
         className={`font-bold text-xl md:text-lg lg:text-xl ${
@@ -51,7 +52,7 @@ export default function Navbar() {
         }`}
       >
         {item.name}
-      </a>
+      </Link>
     );
   });
 
@@ -59,7 +60,7 @@ export default function Navbar() {
 
   const extract2 = data.map((item, ind) => {
     return (
-      <a
+      <Link
         key={ind}
         href={`#${item.path}`}
         className={`font-bold text-xl ${
@@ -69,7 +70,7 @@ export default function Navbar() {
         }`}
       >
         {item.name}
-      </a>
+      </Link>
     );
   });
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -78,7 +79,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className=" overflow-hidden md:px-3 lg:px-4 md:py-7 fixed top-0 left-0 right-0 z-50 backdrop-blur-3xl  ">
+    <div className=" overflow-hidden md:px-3 lg:px-4 md:py-7 fixed top-0 left-0 right-0 z-50  bg-[#f1f2ed] shadow-md">
       <div className="container mx-auto">
         <div className="hidden md:block ">
           <header className="flex flex-row justify-between max-w-full gap-x-7 items-center  ">
@@ -113,9 +114,8 @@ export default function Navbar() {
         {/* Navbar Tow Mobil*/}
         <header className="md:hidden max-w-full pb-5 z-10 ">
           <nav
-            className="md:hidden px-5 pt-5 flex justify-between items-center"
+            className="md:hidden px-5 pt-5 flex justify-between items-center "
             onClick={showNavbar}
-            id="menu"
           >
             <DensityMediumIcon />
             <div className="flex items-center justify-center gap-x-1">
