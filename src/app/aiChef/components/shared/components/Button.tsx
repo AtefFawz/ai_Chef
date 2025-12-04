@@ -28,7 +28,7 @@ export default function Buttons({
       initial={{ scaleX: 0, opacity: 0, y: 60 }}
       transition={{ duration: 0.8, type: "spring" }}
       whileHover={{ scale: 1.05 }}
-      className={`rounded-4xl  border-${border} bg-[${bg}] border-[${borderColor}] cursor-pointer overflow-hidden text-nowrap w-full`}
+      className={`rounded-4xl  border-${border} bg-[${bg}] border-[${borderColor}] cursor-pointer overflow-hidden text-nowrap w-full text-sm`}
       style={{ width: size, backgroundColor: bg }}
     >
       <Button
@@ -36,11 +36,10 @@ export default function Buttons({
           color: textColor,
           padding: "10px 10px",
           minWidth: mainWidth,
-          fontSize: "10px",
           fontWeight: "bold",
         }}
         onClick={onClick}
-        className="w-full h-full "
+        className="w-full h-full text-sm"
       >
         {content}
       </Button>

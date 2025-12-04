@@ -11,13 +11,6 @@ export default function FaqItem({ faqData }: { faqData: faqDataType }) {
   const handelClick = () => {
     setActive((prev) => !prev);
   };
-  const btnStyle = {
-    backgroundColor: active ? "#D9EF78" : "transparent",
-    padding: "20px 8px",
-
-    borderRadius: "99999px",
-    border: "1px solid #213D34 ",
-  };
   return (
     <motion.article
       variants={faqData.animated}
@@ -31,12 +24,7 @@ export default function FaqItem({ faqData }: { faqData: faqDataType }) {
         }}
       >
         <AccordionSummary
-          expandIcon={
-            <span style={btnStyle}>
-              {" "}
-              <ArrowDownwardIcon />
-            </span>
-          }
+          expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
         >

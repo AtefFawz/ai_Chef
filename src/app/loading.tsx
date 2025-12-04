@@ -18,7 +18,7 @@ export default function Loading() {
           height: "100%",
           backgroundColor: "rgba(255, 255, 255, 0.7)",
           zIndex: 9999,
-          fontSize: "42px",
+          fontSize: "25px",
           fontWeight: "bold",
           textAlign: "center",
         }}

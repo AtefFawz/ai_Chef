@@ -1,5 +1,3 @@
-"use client";
-import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 
 interface StatsCardProps {
@@ -25,16 +23,15 @@ export default function StatsCard({
       <h2 className={`text-lg md:text-xl lg:text-xl px-1 order-${order}`}>
         {title}
       </h2>
-      <motion.div layout
-      whileHover={{scale:1.03}}
-      transition={{duration:.3}}
-        className={`flex items-center justify-center w-full overflow-hidden `}>
+      <div
+        className={`flex items-center justify-center w-full overflow-hidden rounded-2xl `}
+      >
         <Image
           src={imageSrc}
           alt={altText}
-          className={` h-full object-cover w-full overflow-hidden`}
+          className={` h-full object-cover w-full hover:scale-125 duration-300`}
         />
-      </motion.div>
+      </div>
     </div>
   );
 }

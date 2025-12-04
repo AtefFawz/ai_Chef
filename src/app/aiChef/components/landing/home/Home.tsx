@@ -115,7 +115,7 @@ export default function Home() {
           </motion.div>
           {/* Column Five => Image Plant*/}
           <motion.div
-            className="col-span-1 md:row-span-4 h-full order-5 md:order-0"
+            className="col-span-1 md:row-span-4 h-full order-5 md:order-0 rounded-4xl overflow-hidden"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, type: "tween", ease: "easeInOut" }}
@@ -123,12 +123,12 @@ export default function Home() {
             <Image
               src={gridSectionData.plantImage}
               alt="Image Shopping"
-              className=" w-full h-full"
+              className=" w-full h-full hover:scale-125 duration-300"
             />
           </motion.div>
           {/* Column Four => Image Food */}
           <motion.div
-            className=" h-full w-full col-span-1 md:row-span-4 order-4  md:order-0"
+            className=" h-full w-full col-span-1 md:row-span-4 order-4 rounded-4xl  md:order-0 overflow-hidden"
             initial={{ opacity: 0, y: -200 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, type: "tween", ease: "easeInOut" }}
@@ -136,12 +136,12 @@ export default function Home() {
             <Image
               src={gridSectionData.foodImage}
               alt="Image Food"
-              className="h-full"
+              className="h-full hover:scale-125 duration-300 "
             />
           </motion.div>
           {/* Column Three => Buttons Group */}
           <div className="md:col-span-1 col-span-2 row-span-4 w-full flex md:flex-col justify-around order-6 md:order-0 gap-5 items-center">
-            <div className="flex flex-col gap-8 text-[#213D34] lg:w-[70%] md:w-full">
+            <div className="flex flex-col md:gap-4 gap-2 text-[#213D34] lg:w-[70%] md:w-full">
               <Buttons
                 content="Try Our Demo"
                 border="1"
