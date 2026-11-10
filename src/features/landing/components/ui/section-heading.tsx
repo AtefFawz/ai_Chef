@@ -16,8 +16,13 @@ export function SectionHeading({
   theme = "light",
 }: SectionHeadingProps) {
   return (
-    <Reveal className={`section-heading section-heading--${align} section-heading--${theme}`}>
-      <span className="eyebrow"><span className="eyebrow__dot" />{eyebrow}</span>
+    <Reveal
+      className={`section-heading section-heading--${align} section-heading--${theme}`}
+    >
+      <span className="eyebrow">
+        <span className="eyebrow__dot" />
+        {eyebrow}
+      </span>
       <h2>{title}</h2>
       {description ? <p>{description}</p> : null}
     </Reveal>
