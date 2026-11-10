@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Chef Mate
 
-## Getting Started
+A responsive recipe-inspiration landing experience built with **Next.js App Router, React, TypeScript, custom CSS design tokens and Framer Motion**.
 
-First, run the development server:
+The current repository is a front-end product experience. It includes an interactive recipe-brief composer that creates a structured prompt and copies it to the clipboard. It does **not** call an AI model, store accounts, or claim to return AI-generated recipes. A live model integration should be added through a server-side route with provider credentials kept in environment variables.
+
+## Getting started
+
+### Requirements
+
+- Node.js 20 or newer
+- npm 10 or newer (npm 9+ supports the v3 lockfile)
+
+### Install and run
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quality checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+src/
+├── app/
+│   ├── globals.css             # Global design system and responsive styles
+│   ├── layout.tsx              # Root document, metadata and app providers
+│   ├── loading.tsx             # App Router loading UI
+│   └── page.tsx                # Home route composition
+├── components/
+│   ├── layout/                 # Site header and footer
+│   ├── providers/              # Framer Motion configuration
+│   └── ui/                     # Shared low-level UI primitives
+├── features/
+│   └── landing/
+│       ├── components/
+│       │   ├── sections/       # Independently maintained landing sections
+│       │   ├── ui/             # Section heading and reveal primitives
+│       │   └── landing-page.tsx
+│       ├── data/               # Typed static content
+│       └── utils/              # Pure recipe-brief construction logic
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+public/images/                  # Compressed WebP imagery used by the page
+.github/workflows/ci.yml        # Type check, lint and production build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Visual system
 
-## Deploy on Vercel
+The visual language uses warm porcelain surfaces, deep aubergine typography and a coral accent, with soft blush and lavender section treatments. It is intentionally distinct from the green palette used in the Cookoing project. The header tracks the section currently crossing the reading position and marks the matching desktop/mobile navigation item.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Architecture notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **App Router stays thin:** route files compose the page and own document-level metadata only.
+- **Feature-first organisation:** landing sections and their content live together under `features/landing`.
+- **Reusable UI:** header, footer, icon, motion provider, reveal animation and section heading are shared components.
+- **Motion accessibility:** `MotionConfig` respects the operating system's reduced-motion preference; CSS also includes a reduced-motion fallback.
+- **No false product claims:** sample recipe cards are labelled as editorial examples. The recipe studio creates a prompt locally and does not send user input to a server.
+- **No browser-only work during SSR:** clipboard access happens only after an explicit form submission. The root document uses `suppressHydrationWarning` narrowly on `<html>` to tolerate attributes injected there by browser extensions before React hydrates; this does not replace fixing actual server/client data mismatches in application components.
+
+## Adding a live AI provider later
+
+Implement the provider call in a Next.js Route Handler (for example `src/app/api/recipes/route.ts`). Validate and limit request input on the server, keep provider keys in server-only environment variables, set request timeouts and output limits, validate the model response before returning it, and add clear loading/error states in the client. Never expose a provider secret through a `NEXT_PUBLIC_` variable.
+
+Use `.env.example` as a reminder that no provider is currently configured. Do not add real secrets to source control.
+
+## Motion and interaction
+
+- Intro motion for the hero copy and food photography.
+- Scroll-triggered reveals with one-time viewport entry.
+- Subtle hover movement for recipe cards and imagery.
+- Animated, accessible mobile navigation with scroll-aware active-section states.
+- Live-updating recipe brief preview and clipboard feedback.
+- Native disclosure elements for keyboard-friendly FAQ interaction.
+
+All transitions are restrained and respect `prefers-reduced-motion`.
